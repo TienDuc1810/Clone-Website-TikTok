@@ -1,11 +1,140 @@
-.wrapper{
+.wrapper {
+    --border-radius: 92px;
+    --length-position: 52px;
+    width: 100%;
     height: 60px;
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12);
-    display: flex;
-    justify-content: center;
+    .header-info {
+        max-width: 1912px;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0px 24px 0px 16px;
+        .header-info-left {
+            width: 300px;
+            height: 42px;
+            .header-link {
+                display: block;
+                width: 118px;
+                height: 42px;
+            }
+        }
+        .search-result{
+            width: 492px;
+            .search-title {
+                height: 30px;
+                padding: 5px 12px;
+                font-size: 1.5rem;
+                line-height: 1.8rem;
+                font-weight: 500;
+                color: rgba(22, 24, 35, 0.5);
+            }
+        }
+        .header-search {
+            width: 500px;
+            height: 46px;
+            background-color: #f1f1f2;
+            display: flex;
+            caret-color: var(--primary-color);
+            align-items: center;
+            padding: 12px 16px;
+            position: relative;
+            border: 1.5px solid transparent;
+            border-radius: var(--border-radius);
+            &::before {
+                content:'';
+                position: absolute;
+                right: var(--length-position);
+                top: 9px;
+                width: 1px;
+                height: 28px;
+                background-color: rgba(22, 24, 35, 0.12);
+            }
+            &:focus-within,
+            &:hover {
+                border-color: rgba(22, 24, 35, 0.2);
+            }
+            .header-input {
+                font-size: 1.6rem;
+                font-weight: 400;
+                line-height: 21px;
+                background: transparent;
+                padding: 0;
+                width: 100%;
+                color: var(--text-color);
+                font-family: 'Nunito Sans', sans-serif;
+                &::placeholder {
+                    color: var(--black-color);
+                    font-size: 1.6rem;
+                    
+                }
+            }
+            .header-input:not(:placeholder-shown) ~ .header-search-btn {
+                color: rgba(22, 24, 35, 0.75);
+            }
+            .btn-close {
+                position: absolute;
+                right: calc(var(--length-position) + 16px);
+                top: 52%;
+                transform: translateY(-50%);
+                color: rgba(22, 24, 35, 0.34);
+                font-size: 1.5rem;
+            }
+            .header-search-btn {
+                width: var(--length-position);
+                height: 46px;
+                padding: 11px 16px 11px 12px;
+                margin: -12px -16px;
+                cursor: pointer;
+                background: transparent;
+                margin-left: 0;
+                color: rgba(22, 24, 35, 0.34);
+                .header-search-icon {
+                    width: 24px;
+                    height: 24px;
+                    scale: (0.85);
+                }
+            }
+        }
+        .header-search:hover .header-search-btn {
+            background-color: rgba(22, 24, 35, 0.09);
+            border-top-right-radius: var(--border-radius);
+            border-bottom-right-radius: var(--border-radius);
+            color: rgba(22, 24, 35, 0.75);
+            &:active {
+                background-color: rgba(22, 24, 35, 0.06);
+            }
+        }
+        .header-info-right {
+            width: 332px;
+            height: 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;  
+            .outner-icon-lap{
+                height: 48px;
+                width: 48px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-left: 12px;
+                .icon-laptop{
+                    height: 26px;
+                    width: 26px;
+                }
+            }
+            .outner-icon-menu{
+                height: 20px;
+                width: 28px;
+                padding: 0px 4px;
+                margin-left: 16px;
+                .icon-menu{
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+        }
+    }
 }
-.header-info{
-    width: 100%;
-    height: 100%;
-    background-color: #ccc;
-}
+
