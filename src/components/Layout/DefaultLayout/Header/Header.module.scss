@@ -1,6 +1,8 @@
 .wrapper {
     --border-radius: 92px;
     --length-position: 52px;
+    --size-icon-header: 32px;
+
     width: 100%;
     height: 60px;
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12);
@@ -20,14 +22,14 @@
                 height: 42px;
             }
         }
-        .search-result{
+        .search-result {
             width: 492px;
             .search-title {
                 height: 30px;
                 padding: 5px 12px;
-                font-size: 1.5rem;
+                font-size: 1.4rem;
                 line-height: 1.8rem;
-                font-weight: 500;
+                font-weight: 600;
                 color: rgba(22, 24, 35, 0.5);
             }
         }
@@ -43,7 +45,7 @@
             border: 1.5px solid transparent;
             border-radius: var(--border-radius);
             &::before {
-                content:'';
+                content: '';
                 position: absolute;
                 right: var(--length-position);
                 top: 9px;
@@ -67,7 +69,6 @@
                 &::placeholder {
                     color: var(--black-color);
                     font-size: 1.6rem;
-                    
                 }
             }
             .header-input:not(:placeholder-shown) ~ .header-search-btn {
@@ -107,34 +108,59 @@
             }
         }
         .header-info-right {
-            width: 332px;
             height: 48px;
             display: flex;
-            justify-content: space-between;
-            align-items: center;  
-            .outner-icon-lap{
-                height: 48px;
+            align-items: center;
+            .outner-laptop-mobile {
                 width: 48px;
+                height: 48px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                cursor: pointer;
                 margin-left: 12px;
-                .icon-laptop{
-                    height: 26px;
-                    width: 26px;
-                }
             }
-            .outner-icon-menu{
-                height: 20px;
-                width: 28px;
-                padding: 0px 4px;
+            .outner-menu {
                 margin-left: 16px;
-                .icon-menu{
+                cursor: pointer;
+                padding: 0 4px;
+                display: flex;
+                .menu {
                     width: 20px;
                     height: 20px;
+                }
+            }
+            //User Login
+            .outner-messenger {
+                width: var(--size-icon-header);
+                height: var(--size-icon-header);
+                margin-left: 16px;
+                cursor: pointer;
+                padding: 3px 3px 0;
+                .messenger {
+                    width: 26px;
+                    height: 26px;
+                }
+            }
+            .outner-mailbox {
+                width: var(--size-icon-header);
+                height: var(--size-icon-header);
+                margin-left: 16px;
+                position: relative;
+                .mailbox {
+                    width: inherit;
+                    height: inherit;
+                }
+            }
+            .outner-avatar {
+                margin-left: 24px;
+                width: var(--size-icon-header);
+                height: var(--size-icon-header);
+                .avatar {
+                    border-radius: 50%;
+                    cursor: pointer;
                 }
             }
         }
     }
 }
-

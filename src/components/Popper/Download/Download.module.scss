@@ -1,0 +1,45 @@
+.content {
+    width: 216px;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    padding-top: 21px;
+    justify-content: center;
+    align-items: center;
+    .image-laptop {
+        width: 116px;
+        height: 100px;
+    }
+    .title {
+        font-weight: 800;
+        font-size: 1.6rem;
+        text-align: center;
+        margin-top: 8px;
+        line-height: 2.1rem;
+        color: rgb(22, 24, 35);
+        cursor: default;
+    }
+    .title-href {
+        background-color: rgb(254, 44, 85);
+        color: var(--white-color);
+        min-width: 168px;
+        min-height: 48px;
+        display: flex;
+        position: relative;
+        align-items: center;
+        justify-content: center;
+        padding: 6px 8px;
+        user-select: none;
+        font-weight: 600;
+        font-size: 1.4rem;
+        line-height: 1.8rem;
+        border-radius: 0px 0px 12px 12px;
+        margin-top: 20px;
+        cursor: pointer;
+        width: 100%;
+    }
+}
+.tippy-content{
+    margin-right: 25px;
+}

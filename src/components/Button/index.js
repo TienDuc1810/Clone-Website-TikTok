@@ -19,6 +19,7 @@ function Button({
     onClick,
     ...passProps
 }) {
+
     let Comp = 'button';
 
     const props = {
@@ -34,6 +35,7 @@ function Button({
         props.href = href;
         Comp = 'a';
     }
+
     const classes = cx('wrapper', {
         primary,
         outline,
@@ -42,6 +44,7 @@ function Button({
         large,
         upload,
     });
+    
     return (
         <Comp className={classes} {...props}>
             {LeftIcon && <span className={cx('icon')}>{LeftIcon}</span>}

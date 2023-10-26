@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
-function ListItem({ to, href, data, onClick, ...passProps }) {
+function ListItem({ to, href, data, onClick, listItemLanguage = false, ...passProps }) {
     let Comp = 'button';
 
     const props = {
@@ -19,9 +19,13 @@ function ListItem({ to, href, data, onClick, ...passProps }) {
         props.href = href;
         Comp = 'a';
     }
+
+    const classes = cx('list-item', {
+        listItemLanguage
+    });
     
     return (
-        <Comp className={cx('list-item')} {...props}>
+        <Comp className={classes} {...props}>
             {data.iconL && <span className={cx('iconL')}>{data.iconL}</span>}
                 <span className={cx('title')}>{data.title}</span>
             {data.iconR && <button className={cx('iconR')}>{data.iconR}</button>}

@@ -1,38 +1,68 @@
 .list-item {
     display: flex;
-    align-items: center;
     font-weight: 700;
     color: rgb(22, 24, 35);
     width: 100%;
     height: 41px;
     padding: 10px 8px 10px 12px;
     font-family: 'Nunito Sans', sans-serif;
+    line-height: 1.8rem;
+    text-align: center;
     position: relative;
+    &:hover {
+        background: rgba(22, 24, 35, 0.03);
+        cursor: pointer;
+    }
 }
 .iconL {
     width: 20px;
     height: 20px;
     margin-right: 8px;
     font-size: 1.8rem;
-    position: absolute;
-    left: 13px;
-    top: 10px;
 }
 .iconR {
     width: 44px;
     height: 24px;
-    margin-right: 8px;
     font-size: 3rem;
+    cursor: pointer;
     position: absolute;
-    right: 0px;
-    top: 5px;
+    right: 5px;
+    bottom: 13px;
+}
+.list-item.listItemLanguage{
+    padding: 10px 24px;
+    font-weight: 600;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.4rem;
+}
+.list-item.listItemLanguage .title{
+    font-size: 1.5rem;
 }
 .title {
     font-size: 1.6rem;
-    padding-left: 28px;
 }
-a .iconL {
+
+
+//Header List Item
+.header {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    position: relative;
+}
+.header-icon {
+    margin-left: 28px;
+    width: 20px;
+    height: 20px;
+    scale: (1.1);
+    cursor: pointer;
+}
+.header-title {
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 700;
+    font-size: 1.7rem;
+    line-height: 2.1rem;
     position: absolute;
-    left: 14px;
-    top: 9px;
+    left: 50%;
+    transform: translateX(-50%);
 }

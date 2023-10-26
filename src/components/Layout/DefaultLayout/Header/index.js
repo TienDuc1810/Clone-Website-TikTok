@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styles from './Header.module.scss';
 import classNames from 'classnames/bind';
-import images from '~/assets/images';
+import { logo, messenger, mailbox, avatar, laptop_mobile, menu } from '~/assets/images';
 import Tippy from '@tippyjs/react/headless';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -10,54 +10,77 @@ import {
     faCircleXmark,
     faEarthAmericas,
     faPlus,
-    faToggleOn,
+    // faToggleOn,
     faToggleOff,
     faLaptop,
-    faEllipsisVertical,
 } from '@fortawesome/free-solid-svg-icons';
-import {faMoon, faCircleQuestion, faLightbulb} from '@fortawesome/free-regular-svg-icons';
+import { faMoon, faCircleQuestion, faLightbulb } from '@fortawesome/free-regular-svg-icons';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
 import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
+import Download from '~/components/Popper/Download';
 
 const cx = classNames.bind(styles);
+
+const DOWNLOAD = [
+    {
+        icon: <FontAwesomeIcon icon={faLaptop} />,
+        title: 'Ứng dụng TikTok cho máy tính',
+        href: '/download',
+        title_href: 'Tải về',
+    },
+];
 
 const MENU_ITEMS = [
     {
         iconL: <FontAwesomeIcon icon={faLightbulb} />,
-        title: "Trung tâm Nhà sáng tạo LIVE"
+        title: 'Trung tâm Nhà sáng tạo LIVE',
     },
     {
         iconL: <FontAwesomeIcon icon={faEarthAmericas} />,
-        title: "Tiếng Việt"
+        title: 'Tiếng Việt',
+        children: {
+            title: 'Ngôn ngữ',
+            data: [
+                {
+                    code: 'vi',
+                    title: 'Tiếng Việt',
+                },
+                {
+                    code: 'en',
+                    title: 'English',
+                },
+            ],
+        },
     },
     {
         iconL: <FontAwesomeIcon icon={faCircleQuestion} />,
-        title: "Phản hồi và trợ giúp",
-        to:'/feedback'
+        title: 'Phản hồi và trợ giúp',
+        to: '/feedback',
     },
     {
         iconL: <FontAwesomeIcon icon={faKeyboard} />,
-        title: "Phím tắt trên bàn phím"
+        title: 'Phím tắt trên bàn phím',
     },
     {
         iconL: <FontAwesomeIcon icon={faMoon} />,
-        title: "Chế độ tối",
+        title: 'Chế độ tối',
         // icon: <FontAwesomeIcon icon={faToggleOn} />,
-        iconR: <FontAwesomeIcon icon={faToggleOff} />
-    }
+        iconR: <FontAwesomeIcon icon={faToggleOff} />,
+    },
 ];
 
 function Header() {
     const [searchResult, setSearchResult] = useState([1]);
+    const User = true;
 
     return (
         <header className={cx('wrapper')}>
             <div className={cx('header-info')}>
                 <div className={cx('header-info-left')}>
                     <a href="/" className={cx('header-link')}>
-                        <img src={images.logo} alt="TikTok" />
+                        <img src={logo.logo} alt="TikTok" />
                     </a>
                 </div>
 
@@ -66,7 +89,7 @@ function Header() {
                     visible={searchResult.length > 0}
                     render={(attrs) => (
                         <div className={cx('search-result')} tabIndex="-1" {...attrs}>
-                            <PopperWrapper>
+                            <PopperWrapper padding>
                                 <h4 className={cx('search-title')}>Tài khoản</h4>
                                 <AccountItem />
                                 <AccountItem />
@@ -87,20 +110,46 @@ function Header() {
                         </button>
                     </div>
                 </Tippy>
+
                 <div className={cx('header-info-right')}>
                     <Button upload LeftIcon={<FontAwesomeIcon icon={faPlus} />}>
-                        Tải lên
+                        <span className={cx('test')}>Tải lên</span>
                     </Button>
-                    <Button primary to="/hello" >Đăng nhập</Button>
-                    <span className={cx('outner-icon-lap')}>
-                        <FontAwesomeIcon className={cx('icon-laptop')} icon={faLaptop} />
-                    </span>
-                    <Menu items={MENU_ITEMS}>
-                        <button className={cx('outner-icon-menu')}>
-                            <FontAwesomeIcon className={cx('icon-menu')} icon={faEllipsisVertical} />
-                        </button>
-                        {/* <Button outline>Follow</Button> */}
-                    </Menu>
+                    {User ? (
+                        <span></span>
+                    ) : (
+                        <Button primary to="/hello">
+                            Đăng nhập
+                        </Button>
+                    )}
+                    <Download items={DOWNLOAD}>
+                        <span className={cx('outner-laptop-mobile')}>
+                            <img src={laptop_mobile.laptop_mobile} alt="laptop_mobile" />
+                        </span>
+                    </Download>
+                    {User ? (
+                        <>
+                            <div className={cx('outner-messenger')}>
+                                <a href="/messenger" className={cx('header-link')}>
+                                    <img src={messenger.messenger} alt="messenger" className={cx('messenger')} />
+                                </a>
+                            </div>
+                            <div className={cx('outner-mailbox')}>
+                                <a href="/mailbox" className={cx('header-link')}>
+                                    <img src={mailbox.mailbox} alt="mailbox" className={cx('mailbox')} />
+                                </a>
+                            </div>
+                            <div className={cx('outner-avatar')}>
+                                <img src={avatar.avatar} alt="avatar" className={cx('avatar')} width={32} height={32} />
+                            </div>
+                        </>
+                    ) : (
+                        <Menu items={MENU_ITEMS}>
+                            <div className={cx('outner-menu')}>
+                                <img src={menu.menu} alt="menu" className={cx('menu')} />
+                            </div>
+                        </Menu>
+                    )}
                 </div>
             </div>
         </header>

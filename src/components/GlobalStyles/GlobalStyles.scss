@@ -1,17 +1,21 @@
 @import 'normalize.css';
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,200;6..12,300;6..12,400;6..12,500;6..12,600;6..12,700;6..12,800;6..12,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100;200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 
 :root {
     --primary-color: #EF2950;
     --black-color: black;
     --white-color: white;
-    --text-color: #333;
+    --text-color: rgb(22 24 35);
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'IBM Plex Sans', sans-serif;
+    text-rendering: optimizeSpeed;
+    color: var(--text-color);
 }
 
 html {
@@ -19,11 +23,7 @@ html {
 }
 
 body {
-    font-family: 'Nunito Sans', sans-serif;
-    font-size: 1.6rem;
-    line-height: 1.5;
-    text-rendering: optimizeSpeed;
-    color: var(--text-color);
+    font-size: 1.6rem; 
 }
 
 button,
@@ -35,5 +35,4 @@ input {
 
 a[href] {
     text-decoration: none;
-    
 }
