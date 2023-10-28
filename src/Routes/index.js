@@ -1,19 +1,18 @@
-import Home from "~/Pages/Home";
-import Following from "~/Pages/Following";
-import Profile from "~/Pages/Profile";
-import Upload from "~/Pages/Upload";
-import { UserLayout } from "~/components/Layout/ExportLayout";
-
+import Home from '~/Pages/Home';
+import Following from '~/Pages/Following';
+import Profile from '~/Pages/Profile';
+import Upload from '~/Pages/Upload';
+import { OnlyHeaderLayout } from '~/components/Layout/ExportLayout';
 
 //Guest component
 export const publicRoutes = [
-    {path:'/', component: Home},
-    {path:'/following', component: Following},
-    {path:'/profile', component: Profile},
-    {path:'/upload', component: Upload, layout: UserLayout}
+    { path: '/', component: Home },
+    { path: '/following', component: Following },
+    { path: '/:nickname', component: Profile },
+    { path: '/upload', component: Upload, layout: OnlyHeaderLayout },
 ];
 
-//User component
-export const privateRoutes = [
-    {path:'/upload', component: Upload, layout: null} 
-];
+// Only Header component
+// export const privateRoutes = [
+//     {path:'/upload', component: Upload, layout: OnlyHeaderLayout}
+// ];

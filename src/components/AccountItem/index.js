@@ -1,29 +1,28 @@
 import styles from './AccountItem.module.scss';
 import classNames from 'classnames/bind';
-import { check_green } from '~/assets/images';
+import { Link } from 'react-router-dom'
+import { CheckGreen } from '../Icons';
 
 const cx = classNames.bind(styles);
 
-function AccountItem() {
+function AccountItem({ data }) {
     return (
-        <div className={cx('wrapper')}>
+        <Link to={`/@${data.nickname}`} className={cx('wrapper')}>
             <span className={cx('outner-avatar')}>
-                <img
-                    className={cx('avatar')}
-                    src="https://p16-sign-sg.tiktokcdn.com/tiktok-obj/bde0d542ad0c559ff67015e13369e03c~c5_300x300.webp?x-expires=1698512400&x-signature=BlqiQvNCWOlfO5SD6CROXLRKAt4%3D"
-                    alt="Avatar"
-                />
+                <img className={cx('avatar')} src={data.avatar} alt={data.full_name} />
             </span>
             <div className={cx('info')}>
                 <h4 className={cx('top-name')}>
-                    dangthuhaf
-                    <span className={cx('outner-check-green')}>
-                        <img src={check_green.check_green} alt="check_green" className={cx('check-green')} />
-                    </span>
+                    {data.nickname}
+                    {data.tick && (
+                        <span className={cx('outner-check-green')}>
+                            <CheckGreen />
+                        </span>
+                    )}
                 </h4>
-                <p className={cx('username')}>Đặng Thu Hà</p>
+                <p className={cx('username')}>{data.full_name}</p>
             </div>
-        </div>
+        </Link>
     );
 }
 

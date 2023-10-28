@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 
 :root {
-    --primary-color: #EF2950;
+    --primary-color: #ef2950;
     --black-color: black;
     --white-color: white;
     --text-color: rgb(22 24 35);
@@ -15,7 +15,7 @@
     box-sizing: border-box;
     font-family: 'IBM Plex Sans', sans-serif;
     text-rendering: optimizeSpeed;
-    color: var(--text-color);
+    text-decoration: none !important;
 }
 
 html {
@@ -23,7 +23,7 @@ html {
 }
 
 body {
-    font-size: 1.6rem; 
+    font-size: 1.6rem;
 }
 
 button,
@@ -31,8 +31,36 @@ input {
     outline: none;
     border: none;
     background-color: transparent;
+    text-decoration: none;
 }
 
 a[href] {
     text-decoration: none;
+    color: var(--text-color);
+}
+
+//Custom tippy tooltip
+body {
+    .tippy-box {
+        width: 80px;
+        height: 37px;
+        text-align: center;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 1.6rem;
+        background-color: rgba(84, 84, 84, 0.92);
+        font-family: 'IBM Plex Sans', sans-serif;
+    }
+    .tippy-content {
+        padding: 7px;
+        & div {
+            color: white;
+        }
+    }
+    .tippy-arrow {
+        color: rgba(84, 84, 84, 0.92);
+    }
+    .tippy-box[data-placement^='bottom'] > .tippy-arrow:before {
+        top: -8px;
+    }
 }

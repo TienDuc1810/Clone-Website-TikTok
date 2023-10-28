@@ -28,7 +28,7 @@ function ListItem({ to, href, data, onClick, listItemLanguage = false, ...passPr
         <Comp className={classes} {...props}>
             {data.iconL && <span className={cx('iconL')}>{data.iconL}</span>}
                 <span className={cx('title')}>{data.title}</span>
-            {data.iconR && <button className={cx('iconR')}>{data.iconR}</button>}
+            {data.iconR && <span className={cx('iconR')}>{data.iconR}</span>}
         </Comp>
     );
 }

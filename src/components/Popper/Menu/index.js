@@ -39,8 +39,9 @@ function Menu({ children, items = [] }) {
             <Tippy
                 interactive
                 delay={[0, 600]}
+                offset={[-100,8]}
                 render={(attrs) => (
-                    <div className={cx(page > 1 ? 'header' : 'content', 'tippy-content')} tabIndex="-1" {...attrs}>
+                    <div className={cx(page > 1 ? 'header' : 'content')} tabIndex="-1" {...attrs}>
                         <PopperWrapper padding={history.length > 1 ? false : true}>
                             {history.length > 1 && (
                                 <HeaderListItem

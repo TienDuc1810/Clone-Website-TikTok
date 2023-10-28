@@ -4,7 +4,7 @@ import classNames from 'classnames/bind';
 
 const cx = classNames.bind(styles);
 
-function UserLayout({ children }) {
+function OnlyHeaderLayout({ children }) {
     return (
         <div className={cx('wrapper')}>
             <Header />
@@ -15,4 +15,4 @@ function UserLayout({ children }) {
     );
 }
 
-export default UserLayout;
+export default OnlyHeaderLayout;
